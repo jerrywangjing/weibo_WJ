@@ -1,0 +1,52 @@
+//
+//  SinaWBPrefixHeader.pch
+//  sinaWeibo_dome
+//
+//  Created by JerryWang on 16/5/19.
+//  Copyright © 2016年 JerryWang. All rights reserved.
+//
+
+#ifndef SinaWBPrefixHeader_pch
+#define SinaWBPrefixHeader_pch
+
+/**
+ *  注意： 使用cocopods 导入的三方框架需要在BuildSetting->search Paths->User Header Search Paths 中添加$(PODS_ROOT)值并设置为recursive后会自动搜索pods 路径，才会有代码提示
+ */
+
+// 第三方库
+#import "AFNetworking.h"
+#import "MBProgressHUD+MJ.h"
+#import "UIWindow+WJExtension.h"
+#import "UIImageView+WebCache.h"
+#import "MJExtension.h"
+/**
+ *  屏幕宽高
+ */
+#define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
+#define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
+/**
+ *  颜色相关
+ */
+#define WJRandomColor  [UIColor colorWithRed:arc4random_uniform(256)/255.0 green:arc4random_uniform(256)/255.0 blue:arc4random_uniform(256)/255.0 alpha:1.0]
+
+#define WJRGBColor(R,G,B)  [UIColor colorWithRed:(R)/255.0f green:(G)/255.0f blue:(B)/255.0f alpha:1.0f]
+
+/**
+ *  类扩展
+ */
+#import "UIView+WJExtension.h"
+#import "UIBarButtonItem+WJExtension.h"
+#import "MJExtension.h" //字典转模型等
+#import "NSDate+Extension.h" //判断日期
+#import "NSString+WJExtension.h" // 计算文字大小
+
+/**
+ *  打印输出
+ */
+#ifdef DEBUG // 开发阶段
+#define NSLog(FORMAT, ...) fprintf(stderr,"Class:%s line:%d Msg:%s\n",[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String], __LINE__, [[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String]);
+#else       // 发布阶段
+#define NSLog(FORMAT, ...) nil
+#endif
+
+#endif /* SinaWBPrefixHeader_pch */
