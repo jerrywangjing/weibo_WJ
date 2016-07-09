@@ -13,7 +13,7 @@
 #ifndef SinaWBPrefixHeader_pch
 #define SinaWBPrefixHeader_pch
 
-/**
+/*			*
  *  注意： 使用cocopods 导入的三方框架需要在BuildSetting->search Paths->User Header Search Paths 中添加$(PODS_ROOT)值并设置为recursive后会自动搜索pods 路径，才会有代码提示
  */
 
