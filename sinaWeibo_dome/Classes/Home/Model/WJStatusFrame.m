@@ -12,6 +12,43 @@
 
 @implementation WJStatusFrame
 
+// 设置配图尺寸
+-(CGSize)photosSizeWithCount:(NSInteger)count{
+
+    NSInteger maxCols = HwStatusMaxCol(count); // 最大列数
+    // 宽度
+    NSInteger cols = count >= maxCols ? maxCols : count; //列数
+    CGFloat photoW = cols * HWStatusPhotoWH + (cols-1) * HWStatusPhotoMargin;
+    // 高度
+    NSInteger rows;
+//        //方法一：
+//    if (count % 3 == 0) { // count 等于 3，6，9的情况
+//        rows = count/3;
+//    }else { // count 等于 1，2，4，5，7，8
+//    
+//        rows = count/3 + 1;
+//    }
+//        // 方法二：
+//    rows = count/3;
+//    if (count % 3 != 0) {
+//        rows += 1;
+//    }
+        // 方法三：
+    /**
+     *  @param 3 最大行数
+     */
+    rows = (count + maxCols -1) / maxCols; // 固定公式
+    /**
+     这个公式也可以计算多条数据可以显示多少页
+     pages = (count + pageSize -1) / pageSize;
+     */
+    
+    CGFloat photoH = rows * HWStatusPhotoWH + (rows -1)* HWStatusPhotoMargin;
+    
+    
+    return CGSizeMake(photoW, photoH);
+}
+
 -(void)setStatus:(WJStatusesModel *)status{
     _status = status;
     // cell 的宽度
@@ -63,11 +100,12 @@
     /** 配图 */
     CGFloat originalH = 0;
     if (status.pic_urls.count) { // 有配图
-        CGFloat photoWH = 100;
+        //CGFloat photoWH = 100;
         CGFloat photoX = contentX;
         CGFloat photoY = CGRectGetMaxY(self.contentLabelF) + HWStatusCellBorderW;
-        self.photoViewF = CGRectMake(photoX, photoY, photoWH, photoWH);
-        originalH = CGRectGetMaxY(self.photoViewF) + HWStatusCellBorderW;
+        CGSize photoSize = [self photosSizeWithCount:status.pic_urls.count];
+        self.photosViewF = CGRectMake(photoX, photoY, photoSize.width,photoSize.height);
+        originalH = CGRectGetMaxY(self.photosViewF) + HWStatusCellBorderW;
         
     }else{ // 无配图
     
@@ -99,10 +137,13 @@
         /** 被转发微博配图 */
         CGFloat retweetH = 0;
         if (retweeted_status.pic_urls.count) { // 转发微博有配图
-            CGFloat retweetPhotoWH = 100;
+            //CGFloat retweetPhotoWH = 100;
             CGFloat retweetPhotoX = retweetContentX;
             CGFloat retweetPhotoY = CGRectGetMaxY(self.retweetContentLabelF) + HWStatusCellBorderW;
-            self.retweetPhotoViewF = CGRectMake(retweetPhotoX, retweetPhotoY, retweetPhotoWH, retweetPhotoWH);
+            
+            CGSize retweetPhotosSize = [self photosSizeWithCount:retweeted_status.pic_urls.count];
+            
+            self.retweetPhotoViewF = CGRectMake(retweetPhotoX, retweetPhotoY, retweetPhotosSize.width, retweetPhotosSize.height);
             
             retweetH = CGRectGetMaxY(self.retweetPhotoViewF) + HWStatusCellBorderW;
         } else { // 转发微博没有配图

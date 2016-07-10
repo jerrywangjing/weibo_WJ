@@ -13,6 +13,7 @@
 #import "WJUserModel.h"
 #import "WJPhotoModel.h"
 #import "WJStatusToolbar.h"
+#import "WJStatusPhotosView.h"
 
 #define TimeAndSourseColor WJRGBColor(172, 172, 172)
 
@@ -27,7 +28,7 @@
 /** 会员图标 */
 @property (nonatomic,weak) UIImageView * vipView;
 /** 配图 */
-@property (nonatomic,weak) UIImageView * photoView;
+@property (nonatomic,weak) WJStatusPhotosView * photosView;
 /** 会员名称 */
 @property (nonatomic,weak) UILabel * nameLabel;
 /** 时间 */
@@ -44,7 +45,7 @@
 /** 转发微博正文和昵称*/
 @property (nonatomic,strong) UILabel * retweetContentLabel;
 /** 转发配图 */
-@property (nonatomic,weak) UIImageView * retweetPhotoView;
+@property (nonatomic,weak) WJStatusPhotosView * retweetPhotosView;
 /** 工具条 */
 @property (nonatomic,weak) WJStatusToolbar * toolbar;
 
@@ -108,9 +109,9 @@
     [originalView addSubview:vipView];
     self.vipView = vipView;
     /** 配图 */
-    UIImageView * photoView = [[UIImageView alloc] init];
-    [originalView addSubview:photoView];
-    self.photoView = photoView;
+    WJStatusPhotosView * photosView = [[WJStatusPhotosView alloc] init];
+    [originalView addSubview:photosView];
+    self.photosView = photosView;
     /** 会员名称 */
     UILabel * nameLabel = [[UILabel alloc] init];
     [originalView addSubview:nameLabel];
@@ -158,9 +159,9 @@
     self.retweetContentLabel = retweetContentLabel;
     // 转发微博配图
     
-    UIImageView * iconView = [[UIImageView alloc] init];
+    WJStatusPhotosView * iconView = [[WJStatusPhotosView alloc] init];
     [retweetView addSubview:iconView];
-    self.retweetPhotoView = iconView;
+    self.retweetPhotosView = iconView;
     
 }
 
@@ -180,6 +181,7 @@
     _statusFrame = statusFrame;
     
     WJStatusesModel * status = statusFrame.status;
+
     WJUserModel * user = status.user;
     
     // 1.原创微博的整体
@@ -205,14 +207,13 @@
     /** 配图 */
     if (status.pic_urls.count) { // 有配图
         
-        self.photoView.frame = statusFrame.photoViewF;
-        WJPhotoModel * photo = [WJPhotoModel mj_objectWithKeyValues:[status.pic_urls firstObject]];
-
-        [self.photoView sd_setImageWithURL:[NSURL URLWithString:photo.thumbnail_pic] placeholderImage:[UIImage imageNamed:@"timeline_image_placeholder"]];
+        self.photosView.frame = statusFrame.photosViewF;
         
-        self.photoView.hidden = NO;
+        self.photosView.photos = status.pic_urls;
+
+        self.photosView.hidden = NO;
     }else{ // 无配图
-        self.photoView.hidden = YES;
+        self.photosView.hidden = YES;
         
     }
     
@@ -262,16 +263,12 @@
         
         // 转发微博配图
     if (retweet_status.pic_urls.count) { // 有配图
-        self.retweetPhotoView.frame = statusFrame.retweetPhotoViewF;
-        
-        WJPhotoModel * photo = [WJPhotoModel mj_objectWithKeyValues:[retweet_status.pic_urls firstObject]];
-        
-        [self.retweetPhotoView sd_setImageWithURL:[NSURL URLWithString:photo.thumbnail_pic] placeholderImage:[UIImage imageNamed:@"timeline_image_placeholder"]];
-        
-        self.retweetPhotoView.hidden = NO;
+        self.retweetPhotosView.frame = statusFrame.retweetPhotoViewF;
+        self.retweetPhotosView.photos = retweet_status.pic_urls;
+        self.retweetPhotosView.hidden = NO;
     }else{
     
-        self.retweetPhotoView.hidden = YES;
+        self.retweetPhotosView.hidden = YES;
     }
     
     }else{

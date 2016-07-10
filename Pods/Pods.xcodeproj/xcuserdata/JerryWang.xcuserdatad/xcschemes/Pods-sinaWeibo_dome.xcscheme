@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '2240B9B6F8EAC1F587D7F303'
+               BlueprintIdentifier = '63EBA1A936AEDF20FB04D723'
                BlueprintName = 'Pods-sinaWeibo_dome'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libPods-sinaWeibo_dome.a'>

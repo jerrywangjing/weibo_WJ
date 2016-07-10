@@ -44,6 +44,7 @@
 		86EE62041D2AAAAC00BD38E1 /* NSDate+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 86EE62031D2AAAAC00BD38E1 /* NSDate+Extension.m */; };
 		86EE62081D2D5AB400BD38E1 /* NSString+WJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 86EE62071D2D5AB400BD38E1 /* NSString+WJExtension.m */; };
 		86EE620E1D3095AB00BD38E1 /* WJStatusPhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86EE620D1D3095AB00BD38E1 /* WJStatusPhotosView.m */; };
+		86EE62111D3207CA00BD38E1 /* WJPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86EE62101D3207CA00BD38E1 /* WJPhotoView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -136,6 +137,8 @@
 		86EE62071D2D5AB400BD38E1 /* NSString+WJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+WJExtension.m"; sourceTree = "<group>"; };
 		86EE620C1D3095AB00BD38E1 /* WJStatusPhotosView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJStatusPhotosView.h; sourceTree = "<group>"; };
 		86EE620D1D3095AB00BD38E1 /* WJStatusPhotosView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJStatusPhotosView.m; sourceTree = "<group>"; };
+		86EE620F1D3207CA00BD38E1 /* WJPhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJPhotoView.h; sourceTree = "<group>"; };
+		86EE62101D3207CA00BD38E1 /* WJPhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJPhotoView.m; sourceTree = "<group>"; };
 		899605175CE370A02B665301 /* Pods-sinaWeibo_dome.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sinaWeibo_dome.release.xcconfig"; path = "Pods/Target Support Files/Pods-sinaWeibo_dome/Pods-sinaWeibo_dome.release.xcconfig"; sourceTree = "<group>"; };
 		F3551A488B2F228FF4064B85 /* Pods-sinaWeibo_dome.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sinaWeibo_dome.debug.xcconfig"; path = "Pods/Target Support Files/Pods-sinaWeibo_dome/Pods-sinaWeibo_dome.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -408,6 +411,8 @@
 				86C7EEB31D1E229C00F3479D /* WJStatusTableViewCell.m */,
 				86EE620C1D3095AB00BD38E1 /* WJStatusPhotosView.h */,
 				86EE620D1D3095AB00BD38E1 /* WJStatusPhotosView.m */,
+				86EE620F1D3207CA00BD38E1 /* WJPhotoView.h */,
+				86EE62101D3207CA00BD38E1 /* WJPhotoView.m */,
 				86EE61FF1D27BE0400BD38E1 /* WJStatusToolbar.h */,
 				86EE62001D27BE0400BD38E1 /* WJStatusToolbar.m */,
 				86C7EEA21D03B29200F3479D /* WJTitleButton.h */,
@@ -738,6 +743,7 @@
 				86CF656E1CF3280A00367AF8 /* WJTabBarViewController.m in Sources */,
 				86CF65741CF9470000367AF8 /* WJDIYSearchBar.m in Sources */,
 				86EE62011D27BE0400BD38E1 /* WJStatusToolbar.m in Sources */,
+				86EE62111D3207CA00BD38E1 /* WJPhotoView.m in Sources */,
 				86C7EEA41D03B29200F3479D /* WJTitleButton.m in Sources */,
 				860BF3951CF08FB60004AD46 /* UIBarButtonItem+WJExtension.m in Sources */,
 				86CF656F1CF3280A00367AF8 /* WJMeTableViewController.m in Sources */,
@@ -900,7 +906,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				GCC_PREFIX_HEADER = /Users/jerry/Desktop/CloneFromGitHub/weiBo_WJ/sinaWeibo_dome/SinaWBPrefixHeader.pch;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/sinaWeibo_dome/SinaWBPrefixHeader.pch";
 				INFOPLIST_FILE = sinaWeibo_dome/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.home.sinaWeibo-dome";
@@ -916,7 +922,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				GCC_PREFIX_HEADER = /Users/jerry/Desktop/CloneFromGitHub/weiBo_WJ/sinaWeibo_dome/SinaWBPrefixHeader.pch;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/sinaWeibo_dome/SinaWBPrefixHeader.pch";
 				INFOPLIST_FILE = sinaWeibo_dome/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.home.sinaWeibo-dome";

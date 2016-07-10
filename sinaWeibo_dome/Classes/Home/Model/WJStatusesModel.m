@@ -74,11 +74,18 @@
 -(void)setSource:(NSString *)source{
     // 通过字符串截取获取来源信息
     // <a href="http://app.weibo.com/t/feed/6vtZb0" rel="nofollow">微博 weibo.com</a>
+    
+    
+    /**
+     *  注意：由于每条返回的微博数据中有些来源数据是空的，所以要在这里做判断如果某条来源数据空(无来源信息)则直接返回。否则会运行时错误，range的值为64位最大值。
+     */
+    if ([source isEqualToString:@""]) return;
+
+    
+    
     NSRange range;
-    NSLog(@"%@",source);
     range.location = [source rangeOfString:@">"].location + 1;
     range.length = [source rangeOfString:@"</"].location - range.location;
-    
-    _source = [NSString stringWithFormat:@"来自%@",[source substringWithRange:range]];
+    _source = [NSString stringWithFormat:@"来自%@", [source substringWithRange:range]];
 }
 @end
