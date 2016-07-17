@@ -38,9 +38,12 @@
     WJMeTableViewController * vc4 = [[WJMeTableViewController alloc] init];
     [self setChildVc:vc4 AttributesWithTitle:@"我" addImg:@"tabbar_profile" hiltImg:@"tabbar_profile_selected"];
     
-    //更换系统自带的tabbar
+    //使用自定义tabBar更换系统自带的tabbar
     WJTabBar * tabBar = [[WJTabBar alloc] init];
-    [self setValue:tabBar forKey:@"tabBar"];
+    /**
+     *  这里使用kvc 修改系统的只读属性，即便此属性是只读的kvc任然可以去修改
+     */
+    [self setValue:tabBar forKeyPath:@"tabBar"];
 
 }
 

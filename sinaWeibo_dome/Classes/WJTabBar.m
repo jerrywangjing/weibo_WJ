@@ -59,7 +59,8 @@
     CGFloat tabbarButtonW = self.width / 5;
     CGFloat tabbarButtonIndex = 0;
     for (UIView *child in self.subviews) {
-            // 创建一个UITabBarButton类
+        
+        // 通过字符串转为一个类，UITabBarButton_是苹果私有的类不允许修改
         Class class = NSClassFromString(@"UITabBarButton");
         if ([child isKindOfClass:class]) {
             // 设置宽度
@@ -70,7 +71,7 @@
             // 增加索引
             tabbarButtonIndex++;
             if (tabbarButtonIndex == 2) {
-                tabbarButtonIndex++;
+                tabbarButtonIndex++; // 为了让其他item给加号按钮让地方
             }
         }
     }
