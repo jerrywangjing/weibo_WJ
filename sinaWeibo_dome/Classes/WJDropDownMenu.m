@@ -51,8 +51,8 @@
     _content.x = 10;
     _content.y = 15;
     // 添加用户内容到下拉菜单
-    self.contentView.height = CGRectGetMaxY(content.frame)+11;
-    self.contentView.width = CGRectGetMaxX(content.frame) +10;
+    self.contentView.height = CGRectGetMaxY(content.frame)+10;
+    self.contentView.width = CGRectGetMaxX(content.frame) +5;
     _content.width = self.contentView.width - 2 * content.x;
     [self.contentView addSubview:content];
 }
@@ -79,7 +79,8 @@
         将from控件的参考原点坐标转换为window 的原点坐标
      */
         [from convertRect:from.frame toView:window];
-    self.contentView.x = CGRectGetMaxX(from.frame)-self.contentView.width/2 -10;
+    self.contentView.centerX = from.centerX;
+    
     self.contentView.y = CGRectGetMaxY(from.frame) +15;
     // 动画效果
     self.contentView.transform = CGAffineTransformMakeScale(0, 0);

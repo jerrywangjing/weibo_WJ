@@ -8,6 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
+typedef enum {
+    WJUserVerifiedTypeNone = -1, // 没有任何认证
+    WJUserVerifiedTypePersonal = 0,
+    WJUserVerifiedTypeOrgEnterprice = 2, // 企业官网
+    WJUserVerifiedTypeOrgMedia = 3, // 媒体官网
+    WJUserVerifiedTypeOrgWebsite = 5, //官方网站
+    WJUserVerifiedTypeDaren = 220 //微博达人
+    
+    
+}WJUserVerifiedType;
 @interface WJUserModel : NSObject
 /**
  *  用户的UID
@@ -34,5 +44,10 @@
  *  是否vip
  */
 @property (nonatomic,assign,getter=isVip) BOOL vip;
+/**
+ *  认证类型
+ */
+@property (nonatomic,assign) WJUserVerifiedType  verified_type;
+
 
 @end

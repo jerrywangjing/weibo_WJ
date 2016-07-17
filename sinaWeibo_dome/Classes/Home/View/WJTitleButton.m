@@ -51,7 +51,7 @@
 // 目的：想在系统计算和设置完成按钮的尺寸后,再修改一下尺寸的话可以在此方法中修改
 -(void)setFrame:(CGRect)frame{
 
-    frame.size.width +=  10; // 给按钮的宽度增加10
+    frame.size.width +=  0; // 给按钮的宽度增加10（暂时未加）
     [super setFrame:frame];
 }
 -(void)layoutSubviews{
@@ -76,4 +76,5 @@
     // 只要修改了图片，就让按钮重新计算自己的尺寸
     [self sizeToFit];
 }
+
 @end

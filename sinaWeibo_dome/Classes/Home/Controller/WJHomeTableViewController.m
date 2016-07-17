@@ -16,10 +16,12 @@
 #import "WJLoadMoreFooter.h"
 #import "WJStatusTableViewCell.h"
 #import "WJStatusFrame.h"
+#import "WJTitleBtnTableViewController.h"
 
 #define TimeLine_api  @"https://api.weibo.com/2/statuses/friends_timeline.json"
 
 @interface WJHomeTableViewController ()<WJDropDownMenuDelegate>
+
 @property (nonatomic,strong) WJDropDownMenu * menuCover;
 @property (nonatomic,weak) UIButton * titleBtn;
 // 微博数据模型数组(里面放的是frame模型，一个statusFrame 模型代表一条微博)
@@ -40,7 +42,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.tableView.backgroundColor = WJRGBColor(240, 240, 240);
     // 设置导航栏按钮
     [self setupNavBarBtns];
     // 添加首页下拉菜单
@@ -307,8 +308,6 @@
     WJTitleButton * titleBtn = [[WJTitleButton alloc] init];
     
     _titleBtn = titleBtn;
-    //_titleBtn.backgroundColor = [UIColor redColor];
-    
         // 获取上一次昵称
     NSString * name = [WJAccountTools unarchiverAccount].name;
     [_titleBtn setTitle:name?name:@"首页" forState:UIControlStateNormal];
@@ -318,8 +317,19 @@
 -(void)titleBtnClick:(UIButton *)titleBtn{
 
     [titleBtn setImage:[UIImage imageNamed:@"navigationbar_arrow_up"] forState:UIControlStateNormal];
+    //1、 创建下拉菜单
     _menuCover = [WJDropDownMenu dropDownMenu];
     _menuCover.delegate = self;
+    
+    // 2. 设置内容视图
+    WJTitleBtnTableViewController * menuVc = [[WJTitleBtnTableViewController alloc] initWithStyle:UITableViewStylePlain];
+    menuVc.view.width = 130;
+    menuVc.view.height = 170;
+    menuVc.view.backgroundColor = WJRGBAColor(96, 96, 96, 0.4);
+    menuVc.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    _menuCover.contentController = menuVc;
+    
+    // 3. 显示视图
    [_menuCover showMenuFrom:titleBtn];
 }
 
@@ -355,6 +365,7 @@
 #pragma mark - dropDownDelegate
 -(void)dropdownMenuDidShow:(WJDropDownMenu *)dropMenu{
 
+    
     NSLog(@"显示成功");
 }
 -(void)dropdownMenuDidDismiss:(WJDropDownMenu *)dropMenu{
@@ -374,13 +385,6 @@
     WJStatusTableViewCell * cell = [WJStatusTableViewCell cellWithTableView:tableView];
         // 字典转模型
     cell.statusFrame = self.statusFrames[indexPath.row];
-//    WJUserModel * user = status.user;
-//    
-//    cell.textLabel.text = user.name;
-//    cell.detailTextLabel.text = status.text;
-//
-//    UIImage * placehoder = [UIImage imageNamed:@"avatar_default_small"];// 占位图
-//    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:user.profile_image_url] placeholderImage:placehoder];
     return cell;
 }
 

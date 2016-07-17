@@ -12,6 +12,7 @@
 #import "WJDiscoverTableViewController.h"
 #import "WJMeTableViewController.h"
 #import "WJMainNavigationController.h"
+#import "WJTabBar.h"
 
 @interface WJTabBarViewController ()
 
@@ -36,6 +37,10 @@
     
     WJMeTableViewController * vc4 = [[WJMeTableViewController alloc] init];
     [self setChildVc:vc4 AttributesWithTitle:@"我" addImg:@"tabbar_profile" hiltImg:@"tabbar_profile_selected"];
+    
+    //更换系统自带的tabbar
+    WJTabBar * tabBar = [[WJTabBar alloc] init];
+    [self setValue:tabBar forKey:@"tabBar"];
 
 }
 
@@ -62,4 +67,12 @@
 
 }
 
+#pragma mark - WJTabBarDelegate代理方法_自定义tabBar
+
+- (void)tabBarDidClickPlusButton:(WJTabBar *)tabBar
+{
+    UIViewController *vc = [[UIViewController alloc] init];
+    vc.view.backgroundColor = [UIColor orangeColor];
+    [self presentViewController:vc animated:YES completion:nil];
+}
 @end

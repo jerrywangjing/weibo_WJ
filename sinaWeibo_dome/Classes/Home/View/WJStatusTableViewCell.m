@@ -14,6 +14,7 @@
 #import "WJPhotoModel.h"
 #import "WJStatusToolbar.h"
 #import "WJStatusPhotosView.h"
+#import "WJIconView.h"
 
 #define TimeAndSourseColor WJRGBColor(172, 172, 172)
 
@@ -24,7 +25,7 @@
 /** 原创微博整体 */
 @property (nonatomic,weak) UIView * originalView;
 /** 头像 */
-@property (nonatomic,weak) UIImageView * iconView;
+@property (nonatomic,weak) WJIconView * iconView;
 /** 会员图标 */
 @property (nonatomic,weak) UIImageView * vipView;
 /** 配图 */
@@ -59,6 +60,8 @@
     if (!cell) {
         cell = [[WJStatusTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
     }
+    
+    tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     return cell;
 }
 /**
@@ -70,7 +73,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         
-        self.backgroundColor = [UIColor clearColor];
+        self.backgroundColor = WJRGBColor(240, 240, 240);
         // 点击cell的时候不要变色
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         // 初始化原创微博
@@ -96,12 +99,9 @@
     [self.contentView addSubview:originalView];
     self.originalView = originalView;
     /** 头像 */
-    UIImageView * iconView = [[UIImageView alloc] init];
+    WJIconView * iconView = [[WJIconView alloc] init];
     [originalView addSubview:iconView];
     self.iconView = iconView;
-    // 给头像添加圆角
-    self.iconView.layer.cornerRadius = 18;
-    self.iconView.layer.masksToBounds = YES;
     
     /** 会员图标 */
     UIImageView * vipView = [[UIImageView alloc] init];
@@ -188,6 +188,7 @@
     self.originalView.frame = statusFrame.originalViewF;
     /** 头像 */
     self.iconView.frame = statusFrame.iconViewF;
+    self.iconView.user = user;
     [self.iconView sd_setImageWithURL:[NSURL URLWithString:user.profile_image_url] placeholderImage:[UIImage imageNamed:@"avatar_default_small"]];
     
     /** 会员图标 */

@@ -45,6 +45,9 @@
 		86EE62081D2D5AB400BD38E1 /* NSString+WJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 86EE62071D2D5AB400BD38E1 /* NSString+WJExtension.m */; };
 		86EE620E1D3095AB00BD38E1 /* WJStatusPhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86EE620D1D3095AB00BD38E1 /* WJStatusPhotosView.m */; };
 		86EE62111D3207CA00BD38E1 /* WJPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86EE62101D3207CA00BD38E1 /* WJPhotoView.m */; };
+		86EE629B1D3B177300BD38E1 /* WJIconView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86EE629A1D3B177300BD38E1 /* WJIconView.m */; };
+		86EE62B11D3B307C00BD38E1 /* WJTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 86EE62B01D3B307C00BD38E1 /* WJTabBar.m */; };
+		86EE62B41D3B3A1500BD38E1 /* WJTitleBtnTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86EE62B31D3B3A1500BD38E1 /* WJTitleBtnTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -139,6 +142,12 @@
 		86EE620D1D3095AB00BD38E1 /* WJStatusPhotosView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJStatusPhotosView.m; sourceTree = "<group>"; };
 		86EE620F1D3207CA00BD38E1 /* WJPhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJPhotoView.h; sourceTree = "<group>"; };
 		86EE62101D3207CA00BD38E1 /* WJPhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJPhotoView.m; sourceTree = "<group>"; };
+		86EE62991D3B177300BD38E1 /* WJIconView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJIconView.h; sourceTree = "<group>"; };
+		86EE629A1D3B177300BD38E1 /* WJIconView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJIconView.m; sourceTree = "<group>"; };
+		86EE62AF1D3B307C00BD38E1 /* WJTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJTabBar.h; sourceTree = "<group>"; };
+		86EE62B01D3B307C00BD38E1 /* WJTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJTabBar.m; sourceTree = "<group>"; };
+		86EE62B21D3B3A1500BD38E1 /* WJTitleBtnTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJTitleBtnTableViewController.h; sourceTree = "<group>"; };
+		86EE62B31D3B3A1500BD38E1 /* WJTitleBtnTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJTitleBtnTableViewController.m; sourceTree = "<group>"; };
 		899605175CE370A02B665301 /* Pods-sinaWeibo_dome.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sinaWeibo_dome.release.xcconfig"; path = "Pods/Target Support Files/Pods-sinaWeibo_dome/Pods-sinaWeibo_dome.release.xcconfig"; sourceTree = "<group>"; };
 		F3551A488B2F228FF4064B85 /* Pods-sinaWeibo_dome.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sinaWeibo_dome.debug.xcconfig"; path = "Pods/Target Support Files/Pods-sinaWeibo_dome/Pods-sinaWeibo_dome.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -385,6 +394,8 @@
 			children = (
 				86CF65501CF3280A00367AF8 /* WJHomeTableViewController.h */,
 				86CF65511CF3280A00367AF8 /* WJHomeTableViewController.m */,
+				86EE62B21D3B3A1500BD38E1 /* WJTitleBtnTableViewController.h */,
+				86EE62B31D3B3A1500BD38E1 /* WJTitleBtnTableViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -459,6 +470,8 @@
 		86CF655D1CF3280A00367AF8 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				86EE62991D3B177300BD38E1 /* WJIconView.h */,
+				86EE629A1D3B177300BD38E1 /* WJIconView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -536,6 +549,8 @@
 				86CF65731CF9470000367AF8 /* WJDIYSearchBar.m */,
 				86CF65781CF9B86100367AF8 /* WJDropDownMenu.h */,
 				86CF65791CF9B86100367AF8 /* WJDropDownMenu.m */,
+				86EE62AF1D3B307C00BD38E1 /* WJTabBar.h */,
+				86EE62B01D3B307C00BD38E1 /* WJTabBar.m */,
 			);
 			name = Tools;
 			path = ..;
@@ -746,6 +761,7 @@
 				86EE62111D3207CA00BD38E1 /* WJPhotoView.m in Sources */,
 				86C7EEA41D03B29200F3479D /* WJTitleButton.m in Sources */,
 				860BF3951CF08FB60004AD46 /* UIBarButtonItem+WJExtension.m in Sources */,
+				86EE629B1D3B177300BD38E1 /* WJIconView.m in Sources */,
 				86CF656F1CF3280A00367AF8 /* WJMeTableViewController.m in Sources */,
 				86C7EEB41D1E229C00F3479D /* WJStatusTableViewCell.m in Sources */,
 				86C7EEB71D1E29FE00F3479D /* WJStatusFrame.m in Sources */,
@@ -755,6 +771,7 @@
 				860BF38C1CF0726B0004AD46 /* UIView+WJExtension.m in Sources */,
 				86C7EEAA1D0963EB00F3479D /* WJStatusesModel.m in Sources */,
 				860BF3201CEDEA470004AD46 /* ViewController.m in Sources */,
+				86EE62B41D3B3A1500BD38E1 /* WJTitleBtnTableViewController.m in Sources */,
 				86CF65701CF3280A00367AF8 /* WJMessageTableViewController.m in Sources */,
 				86CF656A1CF3280A00367AF8 /* WJDiscoverTableViewController.m in Sources */,
 				86CF657A1CF9B86100367AF8 /* WJDropDownMenu.m in Sources */,
@@ -764,6 +781,7 @@
 				8655A3161D22CA0300E01A72 /* WJPhotoModel.m in Sources */,
 				86CF656B1CF3280A00367AF8 /* WJHomeTableViewController.m in Sources */,
 				86CF656C1CF3280A00367AF8 /* AppDelegate.m in Sources */,
+				86EE62B11D3B307C00BD38E1 /* WJTabBar.m in Sources */,
 				86EE62081D2D5AB400BD38E1 /* NSString+WJExtension.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
