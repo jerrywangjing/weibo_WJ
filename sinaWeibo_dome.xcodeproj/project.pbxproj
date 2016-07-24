@@ -48,6 +48,10 @@
 		86EE629B1D3B177300BD38E1 /* WJIconView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86EE629A1D3B177300BD38E1 /* WJIconView.m */; };
 		86EE62B11D3B307C00BD38E1 /* WJTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 86EE62B01D3B307C00BD38E1 /* WJTabBar.m */; };
 		86EE62B41D3B3A1500BD38E1 /* WJTitleBtnTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86EE62B31D3B3A1500BD38E1 /* WJTitleBtnTableViewController.m */; };
+		86EE62B91D4300F100BD38E1 /* WJComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86EE62B81D4300F100BD38E1 /* WJComposeViewController.m */; };
+		86EE62BC1D43297300BD38E1 /* WJDIYTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86EE62BB1D43297300BD38E1 /* WJDIYTextView.m */; };
+		86EE62C01D444EF000BD38E1 /* WJComposeToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 86EE62BF1D444EF000BD38E1 /* WJComposeToolbar.m */; };
+		86EE62C31D445B2600BD38E1 /* WJDIY2TextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86EE62C21D445B2600BD38E1 /* WJDIY2TextView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -148,6 +152,14 @@
 		86EE62B01D3B307C00BD38E1 /* WJTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJTabBar.m; sourceTree = "<group>"; };
 		86EE62B21D3B3A1500BD38E1 /* WJTitleBtnTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJTitleBtnTableViewController.h; sourceTree = "<group>"; };
 		86EE62B31D3B3A1500BD38E1 /* WJTitleBtnTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJTitleBtnTableViewController.m; sourceTree = "<group>"; };
+		86EE62B71D4300F100BD38E1 /* WJComposeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJComposeViewController.h; sourceTree = "<group>"; };
+		86EE62B81D4300F100BD38E1 /* WJComposeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJComposeViewController.m; sourceTree = "<group>"; };
+		86EE62BA1D43297300BD38E1 /* WJDIYTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJDIYTextView.h; sourceTree = "<group>"; };
+		86EE62BB1D43297300BD38E1 /* WJDIYTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJDIYTextView.m; sourceTree = "<group>"; };
+		86EE62BE1D444EF000BD38E1 /* WJComposeToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJComposeToolbar.h; sourceTree = "<group>"; };
+		86EE62BF1D444EF000BD38E1 /* WJComposeToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJComposeToolbar.m; sourceTree = "<group>"; };
+		86EE62C11D445B2600BD38E1 /* WJDIY2TextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJDIY2TextView.h; sourceTree = "<group>"; };
+		86EE62C21D445B2600BD38E1 /* WJDIY2TextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJDIY2TextView.m; sourceTree = "<group>"; };
 		899605175CE370A02B665301 /* Pods-sinaWeibo_dome.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sinaWeibo_dome.release.xcconfig"; path = "Pods/Target Support Files/Pods-sinaWeibo_dome/Pods-sinaWeibo_dome.release.xcconfig"; sourceTree = "<group>"; };
 		F3551A488B2F228FF4064B85 /* Pods-sinaWeibo_dome.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sinaWeibo_dome.debug.xcconfig"; path = "Pods/Target Support Files/Pods-sinaWeibo_dome/Pods-sinaWeibo_dome.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -253,6 +265,7 @@
 		860BF34C1CEDF1E50004AD46 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				86EE62B51D43002100BD38E1 /* Compose */,
 				86C7EE781CFC84F100F3479D /* OAuth */,
 				86C7EE6F1CFAA50B00F3479D /* NewFeature */,
 				86CF65541CF3280A00367AF8 /* Main */,
@@ -545,6 +558,10 @@
 		86CF65711CF9467B00367AF8 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				86EE62BA1D43297300BD38E1 /* WJDIYTextView.h */,
+				86EE62BB1D43297300BD38E1 /* WJDIYTextView.m */,
+				86EE62C11D445B2600BD38E1 /* WJDIY2TextView.h */,
+				86EE62C21D445B2600BD38E1 /* WJDIY2TextView.m */,
 				86CF65721CF9470000367AF8 /* WJDIYSearchBar.h */,
 				86CF65731CF9470000367AF8 /* WJDIYSearchBar.m */,
 				86CF65781CF9B86100367AF8 /* WJDropDownMenu.h */,
@@ -554,6 +571,33 @@
 			);
 			name = Tools;
 			path = ..;
+			sourceTree = "<group>";
+		};
+		86EE62B51D43002100BD38E1 /* Compose */ = {
+			isa = PBXGroup;
+			children = (
+				86EE62BD1D444EC900BD38E1 /* View */,
+				86EE62B61D43002100BD38E1 /* Controller */,
+			);
+			path = Compose;
+			sourceTree = "<group>";
+		};
+		86EE62B61D43002100BD38E1 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				86EE62B71D4300F100BD38E1 /* WJComposeViewController.h */,
+				86EE62B81D4300F100BD38E1 /* WJComposeViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		86EE62BD1D444EC900BD38E1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				86EE62BE1D444EF000BD38E1 /* WJComposeToolbar.h */,
+				86EE62BF1D444EF000BD38E1 /* WJComposeToolbar.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		C18AFFE237FA311EEA29867F /* Frameworks */ = {
@@ -753,6 +797,7 @@
 				86C7EEA11D01BF2E00F3479D /* Foundation+Log.m in Sources */,
 				86C7EE9D1D01AC3F00F3479D /* UIWindow+WJExtension.m in Sources */,
 				86C7EEA71D0963D900F3479D /* WJUserModel.m in Sources */,
+				86EE62C01D444EF000BD38E1 /* WJComposeToolbar.m in Sources */,
 				86C7EE971CFF203000F3479D /* WJAccountTools.m in Sources */,
 				86C7EEAD1D16311000F3479D /* WJLoadMoreFooter.m in Sources */,
 				86CF656E1CF3280A00367AF8 /* WJTabBarViewController.m in Sources */,
@@ -780,9 +825,12 @@
 				86C7EE761CFAA5B200F3479D /* WJNewFeatureController.m in Sources */,
 				8655A3161D22CA0300E01A72 /* WJPhotoModel.m in Sources */,
 				86CF656B1CF3280A00367AF8 /* WJHomeTableViewController.m in Sources */,
+				86EE62C31D445B2600BD38E1 /* WJDIY2TextView.m in Sources */,
 				86CF656C1CF3280A00367AF8 /* AppDelegate.m in Sources */,
 				86EE62B11D3B307C00BD38E1 /* WJTabBar.m in Sources */,
+				86EE62BC1D43297300BD38E1 /* WJDIYTextView.m in Sources */,
 				86EE62081D2D5AB400BD38E1 /* NSString+WJExtension.m in Sources */,
+				86EE62B91D4300F100BD38E1 /* WJComposeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

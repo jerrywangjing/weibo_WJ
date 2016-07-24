@@ -54,5 +54,10 @@
 #else       // 发布阶段
 #define NSLog(FORMAT, ...) nil
 #endif
+/**
+ *  其他
+ */
+
+#define WJNotificationCenter [NSNotificationCenter defaultCenter]
 
 #endif /* SinaWBPrefixHeader_pch */

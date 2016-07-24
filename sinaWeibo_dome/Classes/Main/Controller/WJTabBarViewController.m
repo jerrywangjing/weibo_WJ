@@ -13,6 +13,7 @@
 #import "WJMeTableViewController.h"
 #import "WJMainNavigationController.h"
 #import "WJTabBar.h"
+#import "WJComposeViewController.h"
 
 @interface WJTabBarViewController ()
 
@@ -74,8 +75,8 @@
 
 - (void)tabBarDidClickPlusButton:(WJTabBar *)tabBar
 {
-    UIViewController *vc = [[UIViewController alloc] init];
-    vc.view.backgroundColor = [UIColor orangeColor];
-    [self presentViewController:vc animated:YES completion:nil];
+    WJComposeViewController * vc = [[WJComposeViewController alloc] init];
+    WJMainNavigationController * nav = [[WJMainNavigationController alloc] initWithRootViewController:vc];
+    [self presentViewController:nav animated:YES completion:nil];
 }
 @end
