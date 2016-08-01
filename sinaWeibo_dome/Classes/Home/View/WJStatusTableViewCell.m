@@ -92,7 +92,7 @@
  */
 
 -(void)setupOriginal{
-
+    
     // 1.原创微博的整体
     UIView * originalView = [[UIView alloc] init];
     originalView.backgroundColor = [UIColor whiteColor];

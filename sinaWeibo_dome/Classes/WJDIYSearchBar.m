@@ -4,7 +4,10 @@
 //
 //  Created by JerryWang on 16/5/28.
 //  Copyright © 2016年 JerryWang. All rights reserved.
-//
+
+/**
+    使用UITextField 来实现自定义UISearchBar
+ */
 
 #import "WJDIYSearchBar.h"
 

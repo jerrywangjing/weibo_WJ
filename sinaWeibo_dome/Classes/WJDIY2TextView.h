@@ -4,7 +4,9 @@
 //
 //  Created by JerryWang on 16/7/24.
 //  Copyright © 2016年 JerryWang. All rights reserved.
-//
+/**
+    给原生UITextView 添加placeHolder 功能
+ */
 
 #import <UIKit/UIKit.h>
 

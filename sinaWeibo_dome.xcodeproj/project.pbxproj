@@ -52,6 +52,7 @@
 		86EE62BC1D43297300BD38E1 /* WJDIYTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86EE62BB1D43297300BD38E1 /* WJDIYTextView.m */; };
 		86EE62C01D444EF000BD38E1 /* WJComposeToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 86EE62BF1D444EF000BD38E1 /* WJComposeToolbar.m */; };
 		86EE62C31D445B2600BD38E1 /* WJDIY2TextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86EE62C21D445B2600BD38E1 /* WJDIY2TextView.m */; };
+		86EE64171D4C526700BD38E1 /* WJComposePhotos.m in Sources */ = {isa = PBXBuildFile; fileRef = 86EE64161D4C526700BD38E1 /* WJComposePhotos.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -160,6 +161,8 @@
 		86EE62BF1D444EF000BD38E1 /* WJComposeToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJComposeToolbar.m; sourceTree = "<group>"; };
 		86EE62C11D445B2600BD38E1 /* WJDIY2TextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJDIY2TextView.h; sourceTree = "<group>"; };
 		86EE62C21D445B2600BD38E1 /* WJDIY2TextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJDIY2TextView.m; sourceTree = "<group>"; };
+		86EE64151D4C526700BD38E1 /* WJComposePhotos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJComposePhotos.h; sourceTree = "<group>"; };
+		86EE64161D4C526700BD38E1 /* WJComposePhotos.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJComposePhotos.m; sourceTree = "<group>"; };
 		899605175CE370A02B665301 /* Pods-sinaWeibo_dome.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sinaWeibo_dome.release.xcconfig"; path = "Pods/Target Support Files/Pods-sinaWeibo_dome/Pods-sinaWeibo_dome.release.xcconfig"; sourceTree = "<group>"; };
 		F3551A488B2F228FF4064B85 /* Pods-sinaWeibo_dome.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sinaWeibo_dome.debug.xcconfig"; path = "Pods/Target Support Files/Pods-sinaWeibo_dome/Pods-sinaWeibo_dome.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -596,6 +599,8 @@
 			children = (
 				86EE62BE1D444EF000BD38E1 /* WJComposeToolbar.h */,
 				86EE62BF1D444EF000BD38E1 /* WJComposeToolbar.m */,
+				86EE64151D4C526700BD38E1 /* WJComposePhotos.h */,
+				86EE64161D4C526700BD38E1 /* WJComposePhotos.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -808,6 +813,7 @@
 				860BF3951CF08FB60004AD46 /* UIBarButtonItem+WJExtension.m in Sources */,
 				86EE629B1D3B177300BD38E1 /* WJIconView.m in Sources */,
 				86CF656F1CF3280A00367AF8 /* WJMeTableViewController.m in Sources */,
+				86EE64171D4C526700BD38E1 /* WJComposePhotos.m in Sources */,
 				86C7EEB41D1E229C00F3479D /* WJStatusTableViewCell.m in Sources */,
 				86C7EEB71D1E29FE00F3479D /* WJStatusFrame.m in Sources */,
 				86EE620E1D3095AB00BD38E1 /* WJStatusPhotosView.m in Sources */,

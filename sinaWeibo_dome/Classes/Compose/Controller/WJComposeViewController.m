@@ -12,14 +12,15 @@
 #import "WJDIYTextView.h"
 #import "WJDIY2TextView.h"
 #import "WJComposeToolbar.h"
+#import "WJComposePhotos.h"
 
-@interface WJComposeViewController ()<UITextViewDelegate>
+@interface WJComposeViewController ()<UITextViewDelegate,WJComposeToolbarDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 /** 输入控件 */
 @property (nonatomic, weak) WJDIY2TextView *textView;
 /** 键盘顶部的工具条 */
 @property (nonatomic, weak) WJComposeToolbar *toolbar;
 /** 相册（存放拍照或者相册中选择的图片） */
-//@property (nonatomic, weak) WJComposePhotosView *photosView;
+@property (nonatomic,weak) WJComposePhotos * photosView;
 
 @end
 
@@ -31,9 +32,22 @@
     [self setupNav]; // 创建导航栏内容
     [self setupTextView]; //创建输入控件
     [self setupToolbar]; // 创建工具条
+    [self setupPhotosView]; // 添加相册
 
 }
 
+#pragma mark - 初始化方法
+
+-(void)setupPhotosView{
+
+    WJComposePhotos * photosView  = [[WJComposePhotos alloc] init];
+    photosView.x = 15;
+    photosView.y = 100;
+    photosView.width = self.view.width - 2*photosView.x;
+    photosView.height = self.view.height;
+    [self.textView addSubview:photosView];
+    self.photosView = photosView;
+}
 -(void)setupNav{
 
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStyleDone target:self action:@selector(cancel)];
@@ -90,6 +104,7 @@
     textView.font = [UIFont systemFontOfSize:13];
     textView.alwaysBounceVertical = YES;//垂直方向上一直可以拖拽
     textView.delegate = self;
+    [textView becomeFirstResponder];
     [self.view  addSubview:textView];
     self.textView = textView;
     
@@ -107,6 +122,7 @@
     toolbar.width = self.view.width;
     toolbar.height = 44;
     toolbar.y = self.view.height - toolbar.height;
+    toolbar.delegate = self;
     [self.view addSubview:toolbar];
     // inputAccessoryView 设置显示在键盘顶部的内容
     //self.textView.inputAccessoryView = toolbar;
@@ -114,57 +130,63 @@
 //在这里修改导航栏按钮属性
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    [self.textView becomeFirstResponder];
     // 此方法在viewDidLoad方法完成后执行
     self.navigationItem.rightBarButtonItem.enabled = NO;
 }
 
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [self.textView endEditing:YES];
+}
 -(void)cancel{
 
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 -(void)send{
-//
-//    if (self.photosView.photos.count) {
-//        [self sendWithImage];
-//    } else {
+    
+    if (self.photosView.photos.count) {
+        [self sendWithImage];
+    } else {
         [self sendWithoutImage];
-//    }
-    // dismiss
+    }
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-//-(void)sendWithImage{
+-(void)sendWithImage{
 
     
-    // URL: https://upload.api.weibo.com/2/statuses/upload.json
-    // 参数:
-    /**	status true string 要发布的微博文本内容，必须做URLencode，内容不超过140个汉字。*/
-    /**	access_token true string*/
-    /**	pic true binary 微博的配图。*/
+     //URL: https://upload.api.weibo.com/2/statuses/upload.json
+     /**参数:
+    *	status true string 要发布的微博文本内容，必须做URLencode，内容不超过140个汉字。
+    *	access_token true string
+    *	pic true binary 微博的配图。
     
-    // 1.请求管理者
-//    AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
-//    
-//    // 2.拼接请求参数
-//    NSMutableDictionary *params = [NSMutableDictionary dictionary];
-//    params[@"access_token"] = [WJAccountTools unarchiverAccount].access_token;
-//    params[@"status"] = self.textView.text;
-//    
-//    // 3.发送请求
-//    
-//    [mgr POST:@"https://upload.api.weibo.com/2/statuses/upload.json" parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
-//        // 拼接文件数据
-//        UIImage *image = [self.photosView.photos firstObject];
-//        NSData *data = UIImageJPEGRepresentation(image, 1.0);
-//        [formData appendPartWithFileData:data name:@"pic" fileName:@"test.jpg" mimeType:@"image/jpeg"];
-//    } progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-//         [MBProgressHUD showSuccess:@"发送成功"];
-//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-//         [MBProgressHUD showSuccess:@"发送失败"];
-//    }];
-//
-//}
+      */
+     //1.请求管理者
+    AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
+    
+    // 2.拼接请求参数
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"access_token"] = [WJAccountTools unarchiverAccount].access_token;
+    params[@"status"] = self.textView.text;
+    
+    // 3.发送请求
+    
+    [mgr POST:@"https://upload.api.weibo.com/2/statuses/upload.json" parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+        // 拼接文件数据
+        UIImage *image = [self.photosView.photos firstObject];
+        // 将图片对象压缩成功图片二进制数据data
+        NSData *data = UIImageJPEGRepresentation(image, 1.0);
+        [formData appendPartWithFileData:data name:@"pic" fileName:@"test.jpg" mimeType:@"image/jpeg"];
+    } progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+         [MBProgressHUD showSuccess:@"发送成功"];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+         [MBProgressHUD showError:@"发送失败"];
+    }];
+    
+}
 -(void)sendWithoutImage{
 
     // URL: https://api.weibo.com/2/statuses/update.json
@@ -183,7 +205,7 @@
     [mgr POST:@"https://api.weibo.com/2/statuses/update.json" parameters:params constructingBodyWithBlock:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         [MBProgressHUD showSuccess:@"发送成功"];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        [MBProgressHUD showSuccess:@"发送失败"];
+        [MBProgressHUD showError:@"发送失败"];
     }];
 
 }
@@ -220,22 +242,81 @@
 
 #pragma mark - scrollViewDelegate
 
--(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+-(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
 
-    //注意：offset 向上拖是正值，向下拉是负值，如果有导航栏的话起始位置是-64
-
-    switch ((NSInteger)scrollView.contentOffset.y) {
-        case -70: [self.textView endEditing:YES];
-            break;
-        case -60: [self.textView becomeFirstResponder];
-            break;
-        default:
-            break;
-    }
-
+    [self.textView endEditing:YES];
 }
 -(void)dealloc{
 
     [WJNotificationCenter removeObserver:self];
 }
+
+#pragma mark - composeToolbarDelegate
+
+-(void)composeToolbar:(WJComposeToolbar *)toolbar didClickButton:(WJComposeToolbarButtonType)btnType{
+
+    switch (btnType) {
+        case WJComposeToolbarButtonTypeCamera:
+            [self openCamera];
+            break;
+        case WJComposeToolbarButtonTypeEmotion: //表情
+            
+            break;
+        case WJComposeToolbarButtonTypeMention: // @
+            NSLog(@"@");
+            break;
+        case WJComposeToolbarButtonTypePicture://相册
+            [self openAlbum];
+            break;
+        case WJComposeToolbarButtonTypeTrend: // #
+            NSLog(@"#");
+            break;
+            
+        default:
+            break;
+    }
+}
+#pragma  mark - 其他方法
+-(void)openCamera{
+
+    [self openImagePickerController:UIImagePickerControllerSourceTypeCamera];
+    
+}
+
+-(void)openAlbum{
+
+    [self openImagePickerController:UIImagePickerControllerSourceTypePhotoLibrary];
+}
+
+-(void)openImagePickerController:(UIImagePickerControllerSourceType)type{
+
+    if ([UIImagePickerController isSourceTypeAvailable:type]) {
+        
+        UIImagePickerController * ipc = [[UIImagePickerController alloc] init];
+        ipc.delegate = self;
+        ipc.sourceType = type;
+        [self presentViewController:ipc animated:true completion:nil];
+    }else{
+    
+        NSLog(@"相机不可用");
+    }
+
+}
+#pragma  mark - imagePickerVcDelegate
+
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
+
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    /**
+        info的键值对
+     UIImagePickerControllerOriginalImage = [一个UIImage 对象],
+     UIImagePickerControllerMediaType = public.image,
+     UIImagePickerControllerReferenceURL = assets-library://asset/asset.JPG?id=D3126AC3-9C96-4351-BB91-D7BD7CBF124F&ext=JPG
+
+     */
+    UIImage * image = info[@"UIImagePickerControllerOriginalImage"];
+    // addSubview的时候已经对imageView引用了一次，引用计数器增加1
+    [self.photosView addPhoto:image]; //给photoView添加照片
+}
+
 @end
