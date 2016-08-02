@@ -14,7 +14,7 @@
  */
 @property (nonatomic,copy) NSString * access_token;
 /**
- *  sccess_token 的生命周期，单位是秒
+ *  access_token 的生命周期，单位是秒
  */
 @property (nonatomic,copy) NSString * expires_in;
 /**
