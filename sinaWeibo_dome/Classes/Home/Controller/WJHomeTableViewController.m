@@ -76,6 +76,8 @@
     
     // 3.发送请求
     NSString * api = @"https://rm.api.weibo.com/2/remind/unread_count.json";
+    
+    
     [mgr GET:api parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         // 设置提醒数字(微博的未读数)
