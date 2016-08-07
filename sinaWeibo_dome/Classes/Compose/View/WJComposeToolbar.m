@@ -8,6 +8,10 @@
 
 #import "WJComposeToolbar.h"
 
+@interface WJComposeToolbar ()
+@property (nonatomic,weak)  UIButton * emtionBtn;
+
+@end
 @implementation WJComposeToolbar
 
 - (instancetype)initWithFrame:(CGRect)frame
@@ -20,12 +24,12 @@
         [self setupImgWithNor:@"compose_toolbar_picture" hltImg:@"compose_toolbar_picture_highlighted" type:WJComposeToolbarButtonTypePicture];
         [self setupImgWithNor:@"compose_mentionbutton_background" hltImg:@"compose_mentionbutton_background_highlighted" type:WJComposeToolbarButtonTypeMention];
         [self setupImgWithNor:@"compose_trendbutton_background" hltImg:@"compose_trendbutton_background_highlighted" type:WJComposeToolbarButtonTypeTrend];
-        [self setupImgWithNor:@"compose_emoticonbutton_background" hltImg:@"compose_emoticonbutton_background_highlighted" type:WJComposeToolbarButtonTypeEmotion];
+        self.emtionBtn = [self setupImgWithNor:@"compose_emoticonbutton_background" hltImg:@"compose_emoticonbutton_background_highlighted" type:WJComposeToolbarButtonTypeEmotion];
     }
     return self;
 }
 
--(void)setupImgWithNor:(NSString *)norImg hltImg:(NSString *)hltImg type:(WJComposeToolbarButtonType) type{
+-(UIButton *)setupImgWithNor:(NSString *)norImg hltImg:(NSString *)hltImg type:(WJComposeToolbarButtonType) type{
 
     UIButton * btn = [[UIButton alloc] init];
     [btn setImage:[UIImage imageNamed:norImg] forState:UIControlStateNormal];
@@ -34,6 +38,7 @@
     // 给每个按钮绑定一个枚举值
     btn.tag = type;
     [self addSubview:btn];
+    return btn;
 }
 
 -(void)layoutSubviews{
@@ -57,6 +62,20 @@
 
     if ([self.delegate respondsToSelector:@selector(composeToolbar:didClickButton:)]) {
         [self.delegate composeToolbar:self didClickButton:(int)btn.tag];
+    }
+}
+
+-(void)setShowKeyboardBtn:(BOOL)showKeyboardBtn{
+    _showKeyboardBtn = showKeyboardBtn;
+    
+    if (showKeyboardBtn) {
+        // 显示键盘表情
+        [self.emtionBtn setImage:[UIImage imageNamed:@"compose_keyboardbutton_background"] forState:UIControlStateNormal];
+        [self.emtionBtn setImage:[UIImage imageNamed:@"compose_keyboardbutton_background_highlighted"] forState:UIControlStateHighlighted];
+    }else{
+        // 显示表情按钮
+        [self.emtionBtn setImage:[UIImage imageNamed:@"compose_emoticonbutton_background"] forState:UIControlStateNormal];
+        [self.emtionBtn setImage:[UIImage imageNamed:@"compose_emoticonbutton_background_highlighted"] forState:UIControlStateHighlighted];
     }
 }
 @end

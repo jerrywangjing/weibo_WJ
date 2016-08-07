@@ -13,6 +13,7 @@
 #import "WJDIY2TextView.h"
 #import "WJComposeToolbar.h"
 #import "WJComposePhotos.h"
+#import "WJEmotionKeyboard.h"
 
 @interface WJComposeViewController ()<UITextViewDelegate,WJComposeToolbarDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 /** 输入控件 */
@@ -21,11 +22,24 @@
 @property (nonatomic, weak) WJComposeToolbar *toolbar;
 /** 相册（存放拍照或者相册中选择的图片） */
 @property (nonatomic,weak) WJComposePhotos * photosView;
+/** 表情键盘 */
+@property (nonatomic,strong) WJEmotionKeyboard * emotionKeyboard;
+/** 是否正在切换键盘*/
+@property (nonatomic,assign) BOOL  switchingKeyboard;
 
 @end
 
 @implementation WJComposeViewController
 
+-(WJEmotionKeyboard *)emotionKeyboard{
+
+    if (_emotionKeyboard == nil) {
+        _emotionKeyboard = [[WJEmotionKeyboard alloc] init];
+        _emotionKeyboard.width = self.view.width;
+        _emotionKeyboard.height = 216; // 216是系统键盘高度
+    }
+    return _emotionKeyboard;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
@@ -231,6 +245,9 @@
      UIKeyboardAnimationCurveUserInfoKey = 7,//弹出隐藏的动画节奏(先块后慢，等等)
      }
      */
+    
+    if (self.switchingKeyboard) return; //切换键盘的是不让工具栏动
+    
     NSDictionary * userInfo = noti.userInfo;
     double duration = [userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
     CGRect keyboardFrame = [userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue]; // 键盘的frame
@@ -259,8 +276,8 @@
         case WJComposeToolbarButtonTypeCamera:
             [self openCamera];
             break;
-        case WJComposeToolbarButtonTypeEmotion: //表情
-            
+        case WJComposeToolbarButtonTypeEmotion: //表情/键盘
+            [self switchKeyboard];
             break;
         case WJComposeToolbarButtonTypeMention: // @
             NSLog(@"@");
@@ -277,6 +294,29 @@
     }
 }
 #pragma  mark - 其他方法
+// 切换键盘
+-(void)switchKeyboard{
+
+    if (self.textView.inputView == nil) { // 判断是否系统自带键盘
+        
+        self.textView.inputView = self.emotionKeyboard;
+        // 显示键盘图标
+        self.toolbar.showKeyboardBtn = YES;
+        
+    }else{
+    
+        self.textView.inputView = nil; // 当这个属性为空的时会弹出系统自带键盘
+        // 显示表情图标
+        self.toolbar.showKeyboardBtn = NO;
+    }
+    self.switchingKeyboard = YES;
+    [self.textView endEditing:YES]; //退出键盘
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.05 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.textView becomeFirstResponder];
+        self.switchingKeyboard = NO;
+    });
+    
+}
 -(void)openCamera{
 
     [self openImagePickerController:UIImagePickerControllerSourceTypeCamera];

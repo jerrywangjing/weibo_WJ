@@ -90,8 +90,8 @@
 
 // 设置按钮frame
 -(void)layoutSubviews{
-
     [super layoutSubviews];
+    // 设置frame
     NSInteger count = self.btns.count;
     CGFloat btnW = self.frame.size.width/count;
     CGFloat btnH = self.height;
@@ -101,7 +101,7 @@
         btn.frame = CGRectMake(i*btnW, 0, btnW, btnH);
        
     }
-    
+    // 设置分割线
     for (int i = 0; i < self.dividers.count; i++) {
         
         UIImageView * line = self.dividers[i];

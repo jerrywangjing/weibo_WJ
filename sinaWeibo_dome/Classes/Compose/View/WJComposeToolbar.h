@@ -26,5 +26,6 @@ typedef enum {
 @interface WJComposeToolbar : UIView
 
 @property (nonatomic,weak) id<WJComposeToolbarDelegate> delegate;
+@property (nonatomic,assign) BOOL  showKeyboardBtn; // 是否显示表情按钮
 
 @end

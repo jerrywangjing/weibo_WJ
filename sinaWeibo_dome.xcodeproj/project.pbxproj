@@ -53,6 +53,9 @@
 		86EE62C01D444EF000BD38E1 /* WJComposeToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 86EE62BF1D444EF000BD38E1 /* WJComposeToolbar.m */; };
 		86EE62C31D445B2600BD38E1 /* WJDIY2TextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86EE62C21D445B2600BD38E1 /* WJDIY2TextView.m */; };
 		86EE64171D4C526700BD38E1 /* WJComposePhotos.m in Sources */ = {isa = PBXBuildFile; fileRef = 86EE64161D4C526700BD38E1 /* WJComposePhotos.m */; };
+		86EE641E1D55784300BD38E1 /* WJEmotionKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 86EE641D1D55784300BD38E1 /* WJEmotionKeyboard.m */; };
+		86EE64211D55799A00BD38E1 /* WJEmotionTabbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 86EE64201D55799A00BD38E1 /* WJEmotionTabbar.m */; };
+		86EE64241D557A5B00BD38E1 /* WJEmotionListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86EE64231D557A5B00BD38E1 /* WJEmotionListView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -163,6 +166,12 @@
 		86EE62C21D445B2600BD38E1 /* WJDIY2TextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJDIY2TextView.m; sourceTree = "<group>"; };
 		86EE64151D4C526700BD38E1 /* WJComposePhotos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJComposePhotos.h; sourceTree = "<group>"; };
 		86EE64161D4C526700BD38E1 /* WJComposePhotos.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJComposePhotos.m; sourceTree = "<group>"; };
+		86EE641C1D55784300BD38E1 /* WJEmotionKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJEmotionKeyboard.h; sourceTree = "<group>"; };
+		86EE641D1D55784300BD38E1 /* WJEmotionKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJEmotionKeyboard.m; sourceTree = "<group>"; };
+		86EE641F1D55799A00BD38E1 /* WJEmotionTabbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJEmotionTabbar.h; sourceTree = "<group>"; };
+		86EE64201D55799A00BD38E1 /* WJEmotionTabbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJEmotionTabbar.m; sourceTree = "<group>"; };
+		86EE64221D557A5B00BD38E1 /* WJEmotionListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJEmotionListView.h; sourceTree = "<group>"; };
+		86EE64231D557A5B00BD38E1 /* WJEmotionListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJEmotionListView.m; sourceTree = "<group>"; };
 		899605175CE370A02B665301 /* Pods-sinaWeibo_dome.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sinaWeibo_dome.release.xcconfig"; path = "Pods/Target Support Files/Pods-sinaWeibo_dome/Pods-sinaWeibo_dome.release.xcconfig"; sourceTree = "<group>"; };
 		F3551A488B2F228FF4064B85 /* Pods-sinaWeibo_dome.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sinaWeibo_dome.debug.xcconfig"; path = "Pods/Target Support Files/Pods-sinaWeibo_dome/Pods-sinaWeibo_dome.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -601,6 +610,12 @@
 				86EE62BF1D444EF000BD38E1 /* WJComposeToolbar.m */,
 				86EE64151D4C526700BD38E1 /* WJComposePhotos.h */,
 				86EE64161D4C526700BD38E1 /* WJComposePhotos.m */,
+				86EE641C1D55784300BD38E1 /* WJEmotionKeyboard.h */,
+				86EE641D1D55784300BD38E1 /* WJEmotionKeyboard.m */,
+				86EE641F1D55799A00BD38E1 /* WJEmotionTabbar.h */,
+				86EE64201D55799A00BD38E1 /* WJEmotionTabbar.m */,
+				86EE64221D557A5B00BD38E1 /* WJEmotionListView.h */,
+				86EE64231D557A5B00BD38E1 /* WJEmotionListView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -806,6 +821,7 @@
 				86C7EE971CFF203000F3479D /* WJAccountTools.m in Sources */,
 				86C7EEAD1D16311000F3479D /* WJLoadMoreFooter.m in Sources */,
 				86CF656E1CF3280A00367AF8 /* WJTabBarViewController.m in Sources */,
+				86EE64211D55799A00BD38E1 /* WJEmotionTabbar.m in Sources */,
 				86CF65741CF9470000367AF8 /* WJDIYSearchBar.m in Sources */,
 				86EE62011D27BE0400BD38E1 /* WJStatusToolbar.m in Sources */,
 				86EE62111D3207CA00BD38E1 /* WJPhotoView.m in Sources */,
@@ -822,9 +838,11 @@
 				860BF38C1CF0726B0004AD46 /* UIView+WJExtension.m in Sources */,
 				86C7EEAA1D0963EB00F3479D /* WJStatusesModel.m in Sources */,
 				860BF3201CEDEA470004AD46 /* ViewController.m in Sources */,
+				86EE64241D557A5B00BD38E1 /* WJEmotionListView.m in Sources */,
 				86EE62B41D3B3A1500BD38E1 /* WJTitleBtnTableViewController.m in Sources */,
 				86CF65701CF3280A00367AF8 /* WJMessageTableViewController.m in Sources */,
 				86CF656A1CF3280A00367AF8 /* WJDiscoverTableViewController.m in Sources */,
+				86EE641E1D55784300BD38E1 /* WJEmotionKeyboard.m in Sources */,
 				86CF657A1CF9B86100367AF8 /* WJDropDownMenu.m in Sources */,
 				86C7EE7C1CFC853800F3479D /* WJOAuthViewController.m in Sources */,
 				860BF31A1CEDEA460004AD46 /* main.m in Sources */,
