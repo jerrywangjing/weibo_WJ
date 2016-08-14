@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface WJEmotionListView : UIView
-
+/** 表情(里面存放的WJEmotion模型) */
+@property (nonatomic, strong) NSArray *emotions;
 @end

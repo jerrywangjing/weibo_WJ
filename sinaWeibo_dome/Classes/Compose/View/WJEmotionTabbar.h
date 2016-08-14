@@ -8,6 +8,22 @@
 
 #import <UIKit/UIKit.h>
 
+@class WJEmotionTabbar;
+typedef enum {
+
+    WJEmotionTabbarButtonTypeRecent,
+    WJEmotionTabbarButtonTypeDefault,
+    WJEmotionTabbarButtonTypeEmoji,
+    WJEmotionTabbarButtonTypeLxh,
+    
+}WJEmotionTabbarButtonType;
+@protocol WJEmotionTabbarDelegate <NSObject>
+
+@optional
+-(void)emotienTabBar:(WJEmotionTabbar *)tabBar didSelectButton:(WJEmotionTabbarButtonType)buttonType;
+
+@end
 @interface WJEmotionTabbar : UIView
+@property (nonatomic,weak) id<WJEmotionTabbarDelegate> delegate;
 
 @end

@@ -320,7 +320,6 @@
 -(void)openCamera{
 
     [self openImagePickerController:UIImagePickerControllerSourceTypeCamera];
-    
 }
 
 -(void)openAlbum{

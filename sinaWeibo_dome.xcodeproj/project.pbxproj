@@ -31,6 +31,13 @@
 		86C7EEB11D16320A00F3479D /* WJLoadMoreFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86C7EEB01D16320A00F3479D /* WJLoadMoreFooter.xib */; };
 		86C7EEB41D1E229C00F3479D /* WJStatusTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 86C7EEB31D1E229C00F3479D /* WJStatusTableViewCell.m */; };
 		86C7EEB71D1E29FE00F3479D /* WJStatusFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 86C7EEB61D1E29FE00F3479D /* WJStatusFrame.m */; };
+		86C90CBE1D5EBF3E001B69ED /* EmotionIcons in Resources */ = {isa = PBXBuildFile; fileRef = 86C90CBD1D5EBF3E001B69ED /* EmotionIcons */; };
+		86C90CC21D5EC85F001B69ED /* WJEmotion.m in Sources */ = {isa = PBXBuildFile; fileRef = 86C90CC11D5EC85F001B69ED /* WJEmotion.m */; };
+		86C90CC51D5ECEEA001B69ED /* WJEmotionPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86C90CC41D5ECEEA001B69ED /* WJEmotionPageView.m */; };
+		86C90CC81D5ECF9F001B69ED /* NSString+Emoji.m in Sources */ = {isa = PBXBuildFile; fileRef = 86C90CC71D5ECF9F001B69ED /* NSString+Emoji.m */; };
+		86C90CCB1D5ED210001B69ED /* WJEmotionTabbarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 86C90CCA1D5ED210001B69ED /* WJEmotionTabbarButton.m */; };
+		86C90CCE1D600614001B69ED /* HWHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 86C90CCD1D600614001B69ED /* HWHttpTool.m */; };
+		86C90CD11D601F51001B69ED /* HWConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 86C90CD01D601F51001B69ED /* HWConst.m */; };
 		86CF656A1CF3280A00367AF8 /* WJDiscoverTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86CF654B1CF3280A00367AF8 /* WJDiscoverTableViewController.m */; };
 		86CF656B1CF3280A00367AF8 /* WJHomeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86CF65511CF3280A00367AF8 /* WJHomeTableViewController.m */; };
 		86CF656C1CF3280A00367AF8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 86CF65571CF3280A00367AF8 /* AppDelegate.m */; };
@@ -122,6 +129,19 @@
 		86C7EEB31D1E229C00F3479D /* WJStatusTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJStatusTableViewCell.m; sourceTree = "<group>"; };
 		86C7EEB51D1E29FE00F3479D /* WJStatusFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJStatusFrame.h; sourceTree = "<group>"; };
 		86C7EEB61D1E29FE00F3479D /* WJStatusFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJStatusFrame.m; sourceTree = "<group>"; };
+		86C90CBD1D5EBF3E001B69ED /* EmotionIcons */ = {isa = PBXFileReference; lastKnownFileType = folder; path = EmotionIcons; sourceTree = "<group>"; };
+		86C90CC01D5EC85F001B69ED /* WJEmotion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJEmotion.h; sourceTree = "<group>"; };
+		86C90CC11D5EC85F001B69ED /* WJEmotion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJEmotion.m; sourceTree = "<group>"; };
+		86C90CC31D5ECEEA001B69ED /* WJEmotionPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJEmotionPageView.h; sourceTree = "<group>"; };
+		86C90CC41D5ECEEA001B69ED /* WJEmotionPageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJEmotionPageView.m; sourceTree = "<group>"; };
+		86C90CC61D5ECF9F001B69ED /* NSString+Emoji.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Emoji.h"; sourceTree = "<group>"; };
+		86C90CC71D5ECF9F001B69ED /* NSString+Emoji.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Emoji.m"; sourceTree = "<group>"; };
+		86C90CC91D5ED210001B69ED /* WJEmotionTabbarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJEmotionTabbarButton.h; sourceTree = "<group>"; };
+		86C90CCA1D5ED210001B69ED /* WJEmotionTabbarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJEmotionTabbarButton.m; sourceTree = "<group>"; };
+		86C90CCC1D600614001B69ED /* HWHttpTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWHttpTool.h; sourceTree = "<group>"; };
+		86C90CCD1D600614001B69ED /* HWHttpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWHttpTool.m; sourceTree = "<group>"; };
+		86C90CCF1D601F51001B69ED /* HWConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWConst.h; sourceTree = "<group>"; };
+		86C90CD01D601F51001B69ED /* HWConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWConst.m; sourceTree = "<group>"; };
 		86CF654A1CF3280A00367AF8 /* WJDiscoverTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJDiscoverTableViewController.h; sourceTree = "<group>"; };
 		86CF654B1CF3280A00367AF8 /* WJDiscoverTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJDiscoverTableViewController.m; sourceTree = "<group>"; };
 		86CF65501CF3280A00367AF8 /* WJHomeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJHomeTableViewController.h; sourceTree = "<group>"; };
@@ -237,6 +257,7 @@
 		860BF3181CEDEA460004AD46 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				86C90CBD1D5EBF3E001B69ED /* EmotionIcons */,
 				860BF3241CEDEA470004AD46 /* Assets.xcassets */,
 				860BF3291CEDEA470004AD46 /* Info.plist */,
 				860BF3191CEDEA460004AD46 /* main.m */,
@@ -293,6 +314,8 @@
 			isa = PBXGroup;
 			children = (
 				86C7EEA01D01BF2E00F3479D /* Foundation+Log.m */,
+				86C90CC61D5ECF9F001B69ED /* NSString+Emoji.h */,
+				86C90CC71D5ECF9F001B69ED /* NSString+Emoji.m */,
 				860BF38A1CF0726B0004AD46 /* UIView+WJExtension.h */,
 				860BF38B1CF0726B0004AD46 /* UIView+WJExtension.m */,
 				860BF3931CF08FB60004AD46 /* UIBarButtonItem+WJExtension.h */,
@@ -369,6 +392,15 @@
 				86C7EE961CFF203000F3479D /* WJAccountTools.m */,
 			);
 			path = Tools;
+			sourceTree = "<group>";
+		};
+		86C90CBF1D5EC842001B69ED /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				86C90CC01D5EC85F001B69ED /* WJEmotion.h */,
+				86C90CC11D5EC85F001B69ED /* WJEmotion.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		86CF65481CF3280A00367AF8 /* Discover */ = {
@@ -570,6 +602,10 @@
 		86CF65711CF9467B00367AF8 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				86C90CCF1D601F51001B69ED /* HWConst.h */,
+				86C90CD01D601F51001B69ED /* HWConst.m */,
+				86C90CCC1D600614001B69ED /* HWHttpTool.h */,
+				86C90CCD1D600614001B69ED /* HWHttpTool.m */,
 				86EE62BA1D43297300BD38E1 /* WJDIYTextView.h */,
 				86EE62BB1D43297300BD38E1 /* WJDIYTextView.m */,
 				86EE62C11D445B2600BD38E1 /* WJDIY2TextView.h */,
@@ -588,6 +624,7 @@
 		86EE62B51D43002100BD38E1 /* Compose */ = {
 			isa = PBXGroup;
 			children = (
+				86C90CBF1D5EC842001B69ED /* Model */,
 				86EE62BD1D444EC900BD38E1 /* View */,
 				86EE62B61D43002100BD38E1 /* Controller */,
 			);
@@ -614,8 +651,12 @@
 				86EE641D1D55784300BD38E1 /* WJEmotionKeyboard.m */,
 				86EE641F1D55799A00BD38E1 /* WJEmotionTabbar.h */,
 				86EE64201D55799A00BD38E1 /* WJEmotionTabbar.m */,
+				86C90CC91D5ED210001B69ED /* WJEmotionTabbarButton.h */,
+				86C90CCA1D5ED210001B69ED /* WJEmotionTabbarButton.m */,
 				86EE64221D557A5B00BD38E1 /* WJEmotionListView.h */,
 				86EE64231D557A5B00BD38E1 /* WJEmotionListView.m */,
+				86C90CC31D5ECEEA001B69ED /* WJEmotionPageView.h */,
+				86C90CC41D5ECEEA001B69ED /* WJEmotionPageView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -737,6 +778,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86C90CBE1D5EBF3E001B69ED /* EmotionIcons in Resources */,
 				86C7EEB11D16320A00F3479D /* WJLoadMoreFooter.xib in Resources */,
 				860BF3281CEDEA470004AD46 /* LaunchScreen.storyboard in Resources */,
 				860BF3251CEDEA470004AD46 /* Assets.xcassets in Resources */,
@@ -813,6 +855,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86C90CC81D5ECF9F001B69ED /* NSString+Emoji.m in Sources */,
 				86EE62041D2AAAAC00BD38E1 /* NSDate+Extension.m in Sources */,
 				86C7EEA11D01BF2E00F3479D /* Foundation+Log.m in Sources */,
 				86C7EE9D1D01AC3F00F3479D /* UIWindow+WJExtension.m in Sources */,
@@ -832,6 +875,7 @@
 				86EE64171D4C526700BD38E1 /* WJComposePhotos.m in Sources */,
 				86C7EEB41D1E229C00F3479D /* WJStatusTableViewCell.m in Sources */,
 				86C7EEB71D1E29FE00F3479D /* WJStatusFrame.m in Sources */,
+				86C90CCE1D600614001B69ED /* HWHttpTool.m in Sources */,
 				86EE620E1D3095AB00BD38E1 /* WJStatusPhotosView.m in Sources */,
 				86C7EE801CFDD77B00F3479D /* WJAccount.m in Sources */,
 				86CF656D1CF3280A00367AF8 /* WJMainNavigationController.m in Sources */,
@@ -840,8 +884,11 @@
 				860BF3201CEDEA470004AD46 /* ViewController.m in Sources */,
 				86EE64241D557A5B00BD38E1 /* WJEmotionListView.m in Sources */,
 				86EE62B41D3B3A1500BD38E1 /* WJTitleBtnTableViewController.m in Sources */,
+				86C90CC21D5EC85F001B69ED /* WJEmotion.m in Sources */,
 				86CF65701CF3280A00367AF8 /* WJMessageTableViewController.m in Sources */,
 				86CF656A1CF3280A00367AF8 /* WJDiscoverTableViewController.m in Sources */,
+				86C90CC51D5ECEEA001B69ED /* WJEmotionPageView.m in Sources */,
+				86C90CCB1D5ED210001B69ED /* WJEmotionTabbarButton.m in Sources */,
 				86EE641E1D55784300BD38E1 /* WJEmotionKeyboard.m in Sources */,
 				86CF657A1CF9B86100367AF8 /* WJDropDownMenu.m in Sources */,
 				86C7EE7C1CFC853800F3479D /* WJOAuthViewController.m in Sources */,
@@ -850,6 +897,7 @@
 				8655A3161D22CA0300E01A72 /* WJPhotoModel.m in Sources */,
 				86CF656B1CF3280A00367AF8 /* WJHomeTableViewController.m in Sources */,
 				86EE62C31D445B2600BD38E1 /* WJDIY2TextView.m in Sources */,
+				86C90CD11D601F51001B69ED /* HWConst.m in Sources */,
 				86CF656C1CF3280A00367AF8 /* AppDelegate.m in Sources */,
 				86EE62B11D3B307C00BD38E1 /* WJTabBar.m in Sources */,
 				86EE62BC1D43297300BD38E1 /* WJDIYTextView.m in Sources */,
