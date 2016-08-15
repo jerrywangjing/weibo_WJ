@@ -19,7 +19,7 @@
 #define HwStatusMaxCol(count) ((count==4) ? 2 :3)
 
 // 第三方库
-#import "AFNetworking.h"
+#import "WJHttpTool.h"
 #import "MBProgressHUD+MJ.h"
 #import "UIWindow+WJExtension.h"
 #import "UIImageView+WebCache.h"
@@ -45,6 +45,8 @@
 #import "MJExtension.h" //字典转模型等
 #import "NSDate+Extension.h" //判断日期
 #import "NSString+WJExtension.h" // 计算文字大小
+// 系统适配
+#define isIOS7 ([[UIDevice currentDevice].systemVersion doubleValue] >= 7.0)
 
 /**
  *  打印输出

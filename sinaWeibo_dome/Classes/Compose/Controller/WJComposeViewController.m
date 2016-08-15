@@ -14,8 +14,9 @@
 #import "WJComposeToolbar.h"
 #import "WJComposePhotos.h"
 #import "WJEmotionKeyboard.h"
+#import "AFNetworking.h"
 
-@interface WJComposeViewController ()<UITextViewDelegate,WJComposeToolbarDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate>
+@interface WJComposeViewController ()<UITextViewDelegate,WJComposeToolbarDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate,AFMultipartFormData>
 /** 输入控件 */
 @property (nonatomic, weak) WJDIY2TextView *textView;
 /** 键盘顶部的工具条 */
@@ -178,26 +179,36 @@
     *	pic true binary 微博的配图。
     
       */
-     //1.请求管理者
-    AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
-    
-    // 2.拼接请求参数
+   // AFHTTPSessionManager * mgr = [AFHTTPSessionManager manager];
+    // 1.拼接请求参数
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"access_token"] = [WJAccountTools unarchiverAccount].access_token;
     params[@"status"] = self.textView.text;
+    NSString * url = @"https://upload.api.weibo.com/2/statuses/upload.json";
+    // 2.发送请求
+
+//    [mgr POST: url parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+//        // 拼接文件数据
+//        UIImage *image = [self.photosView.photos firstObject];
+//        // 将图片对象压缩成功图片二进制数据data
+//        NSData *data = UIImageJPEGRepresentation(image, 1.0);
+//        [formData appendPartWithFileData:data name:@"pic" fileName:@"test.jpg" mimeType:@"image/jpeg"];
+//    } progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//         [MBProgressHUD showSuccess:@"发送成功"];
+//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//         [MBProgressHUD showError:@"发送失败"];
+//    }];
     
-    // 3.发送请求
-    
-    [mgr POST:@"https://upload.api.weibo.com/2/statuses/upload.json" parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+    [WJHttpTool post:url params:params constructingBody:^(id<AFMultipartFormData> formData) {
         // 拼接文件数据
         UIImage *image = [self.photosView.photos firstObject];
         // 将图片对象压缩成功图片二进制数据data
         NSData *data = UIImageJPEGRepresentation(image, 1.0);
         [formData appendPartWithFileData:data name:@"pic" fileName:@"test.jpg" mimeType:@"image/jpeg"];
-    } progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-         [MBProgressHUD showSuccess:@"发送成功"];
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-         [MBProgressHUD showError:@"发送失败"];
+    } success:^(id respenseObject) {
+        [MBProgressHUD showSuccess:@"发送成功"];
+    } failure:^(NSError *error) {
+        [MBProgressHUD showError:@"发送失败"];
     }];
     
 }
@@ -207,18 +218,17 @@
     // 参数:
     /**	status: true string 要发布的微博文本内容，必须做URLencode，内容不超过140个汉字。*/
     /**	access_token: true string*/
-    // 1.请求管理者
-    AFHTTPSessionManager * mgr = [AFHTTPSessionManager manager];
     
-    // 2.拼接请求参数
+    // 1.拼接请求参数
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"access_token"] = [WJAccountTools unarchiverAccount].access_token;
     params[@"status"] = self.textView.text;
     
-    // 3.发送请求
-    [mgr POST:@"https://api.weibo.com/2/statuses/update.json" parameters:params constructingBodyWithBlock:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    NSString * url = @"https://api.weibo.com/2/statuses/update.json";
+    // 2.发送请求
+    [WJHttpTool post:url params:params success:^(id responseObject) {
         [MBProgressHUD showSuccess:@"发送成功"];
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+    } failure:^(NSError *error) {
         [MBProgressHUD showError:@"发送失败"];
     }];
 

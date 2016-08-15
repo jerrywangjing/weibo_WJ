@@ -36,8 +36,8 @@
 		86C90CC51D5ECEEA001B69ED /* WJEmotionPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86C90CC41D5ECEEA001B69ED /* WJEmotionPageView.m */; };
 		86C90CC81D5ECF9F001B69ED /* NSString+Emoji.m in Sources */ = {isa = PBXBuildFile; fileRef = 86C90CC71D5ECF9F001B69ED /* NSString+Emoji.m */; };
 		86C90CCB1D5ED210001B69ED /* WJEmotionTabbarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 86C90CCA1D5ED210001B69ED /* WJEmotionTabbarButton.m */; };
-		86C90CCE1D600614001B69ED /* HWHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 86C90CCD1D600614001B69ED /* HWHttpTool.m */; };
-		86C90CD11D601F51001B69ED /* HWConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 86C90CD01D601F51001B69ED /* HWConst.m */; };
+		86C90CD11D601F51001B69ED /* WJConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 86C90CD01D601F51001B69ED /* WJConst.m */; };
+		86C90CD71D61FE4A001B69ED /* WJHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 86C90CD61D61FE4A001B69ED /* WJHttpTool.m */; };
 		86CF656A1CF3280A00367AF8 /* WJDiscoverTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86CF654B1CF3280A00367AF8 /* WJDiscoverTableViewController.m */; };
 		86CF656B1CF3280A00367AF8 /* WJHomeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86CF65511CF3280A00367AF8 /* WJHomeTableViewController.m */; };
 		86CF656C1CF3280A00367AF8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 86CF65571CF3280A00367AF8 /* AppDelegate.m */; };
@@ -138,10 +138,10 @@
 		86C90CC71D5ECF9F001B69ED /* NSString+Emoji.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Emoji.m"; sourceTree = "<group>"; };
 		86C90CC91D5ED210001B69ED /* WJEmotionTabbarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJEmotionTabbarButton.h; sourceTree = "<group>"; };
 		86C90CCA1D5ED210001B69ED /* WJEmotionTabbarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJEmotionTabbarButton.m; sourceTree = "<group>"; };
-		86C90CCC1D600614001B69ED /* HWHttpTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWHttpTool.h; sourceTree = "<group>"; };
-		86C90CCD1D600614001B69ED /* HWHttpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWHttpTool.m; sourceTree = "<group>"; };
-		86C90CCF1D601F51001B69ED /* HWConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWConst.h; sourceTree = "<group>"; };
-		86C90CD01D601F51001B69ED /* HWConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWConst.m; sourceTree = "<group>"; };
+		86C90CCF1D601F51001B69ED /* WJConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJConst.h; sourceTree = "<group>"; };
+		86C90CD01D601F51001B69ED /* WJConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJConst.m; sourceTree = "<group>"; };
+		86C90CD51D61FE4A001B69ED /* WJHttpTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJHttpTool.h; sourceTree = "<group>"; };
+		86C90CD61D61FE4A001B69ED /* WJHttpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJHttpTool.m; sourceTree = "<group>"; };
 		86CF654A1CF3280A00367AF8 /* WJDiscoverTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJDiscoverTableViewController.h; sourceTree = "<group>"; };
 		86CF654B1CF3280A00367AF8 /* WJDiscoverTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJDiscoverTableViewController.m; sourceTree = "<group>"; };
 		86CF65501CF3280A00367AF8 /* WJHomeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJHomeTableViewController.h; sourceTree = "<group>"; };
@@ -602,10 +602,10 @@
 		86CF65711CF9467B00367AF8 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
-				86C90CCF1D601F51001B69ED /* HWConst.h */,
-				86C90CD01D601F51001B69ED /* HWConst.m */,
-				86C90CCC1D600614001B69ED /* HWHttpTool.h */,
-				86C90CCD1D600614001B69ED /* HWHttpTool.m */,
+				86C90CCF1D601F51001B69ED /* WJConst.h */,
+				86C90CD01D601F51001B69ED /* WJConst.m */,
+				86C90CD51D61FE4A001B69ED /* WJHttpTool.h */,
+				86C90CD61D61FE4A001B69ED /* WJHttpTool.m */,
 				86EE62BA1D43297300BD38E1 /* WJDIYTextView.h */,
 				86EE62BB1D43297300BD38E1 /* WJDIYTextView.m */,
 				86EE62C11D445B2600BD38E1 /* WJDIY2TextView.h */,
@@ -861,6 +861,7 @@
 				86C7EE9D1D01AC3F00F3479D /* UIWindow+WJExtension.m in Sources */,
 				86C7EEA71D0963D900F3479D /* WJUserModel.m in Sources */,
 				86EE62C01D444EF000BD38E1 /* WJComposeToolbar.m in Sources */,
+				86C90CD71D61FE4A001B69ED /* WJHttpTool.m in Sources */,
 				86C7EE971CFF203000F3479D /* WJAccountTools.m in Sources */,
 				86C7EEAD1D16311000F3479D /* WJLoadMoreFooter.m in Sources */,
 				86CF656E1CF3280A00367AF8 /* WJTabBarViewController.m in Sources */,
@@ -875,7 +876,6 @@
 				86EE64171D4C526700BD38E1 /* WJComposePhotos.m in Sources */,
 				86C7EEB41D1E229C00F3479D /* WJStatusTableViewCell.m in Sources */,
 				86C7EEB71D1E29FE00F3479D /* WJStatusFrame.m in Sources */,
-				86C90CCE1D600614001B69ED /* HWHttpTool.m in Sources */,
 				86EE620E1D3095AB00BD38E1 /* WJStatusPhotosView.m in Sources */,
 				86C7EE801CFDD77B00F3479D /* WJAccount.m in Sources */,
 				86CF656D1CF3280A00367AF8 /* WJMainNavigationController.m in Sources */,
@@ -897,7 +897,7 @@
 				8655A3161D22CA0300E01A72 /* WJPhotoModel.m in Sources */,
 				86CF656B1CF3280A00367AF8 /* WJHomeTableViewController.m in Sources */,
 				86EE62C31D445B2600BD38E1 /* WJDIY2TextView.m in Sources */,
-				86C90CD11D601F51001B69ED /* HWConst.m in Sources */,
+				86C90CD11D601F51001B69ED /* WJConst.m in Sources */,
 				86CF656C1CF3280A00367AF8 /* AppDelegate.m in Sources */,
 				86EE62B11D3B307C00BD38E1 /* WJTabBar.m in Sources */,
 				86EE62BC1D43297300BD38E1 /* WJDIYTextView.m in Sources */,

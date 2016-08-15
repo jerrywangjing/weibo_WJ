@@ -8,7 +8,6 @@
 
 #import "WJOAuthViewController.h"
 #import "WJAccount.h"
-#import "MBProgressHUD+MJ.h"
 #import "WJAccountTools.h"
 
 #define appKey @"2581243918"
@@ -69,7 +68,6 @@
  */
 -(void)accessTokenWithCode:(NSString * )code{
 
-    AFHTTPSessionManager * manager = [AFHTTPSessionManager manager];
     //manager.responseSerializer = [AFJSONResponseSerializer serializer];默认值
 //    NSString * fullUrl = htstps://api.weibo.com/oauth2/access_token?client_id=YOUR_CLIENT_ID&client_secret=YOUR_CLIENT_SECRET&grant_type=authorization_code&redirect_uri=YOUR_REGISTERED_REDIRECT_URI&code=CODE
 //"
@@ -83,23 +81,22 @@
     params[@"redirect_uri"] = @"http://";
     params[@"code"] = code;
     // 发送post请求
-    [manager POST:requestUrl parameters:params progress:^(NSProgress * _Nonnull uploadProgress) {
-        //
-    } success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary * _Nullable responseObject) {
+    [WJHttpTool post:requestUrl params:params success:^(id responseObject) {
         [MBProgressHUD hideHUD];
         // 存储账号信息
-            //将返回的字典转为模型，存进沙盒
+        //将返回的字典转为模型，存进沙盒
         WJAccount * account = [WJAccount accountWithDic:responseObject];
         [WJAccountTools saveAccount:account];
         // 切换窗口的根控制器
-       UIWindow * window = [UIApplication sharedApplication].keyWindow;
+        UIWindow * window = [UIApplication sharedApplication].keyWindow;
         [window exchangeRootViewController];
-     //access_token = 2.00CAkcBD79dgoC798bd67e01qoaJ9E
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        //access_token = 2.00CAkcBD79dgoC798bd67e01qoaJ9E
+
+    } failure:^(NSError *error) {
         NSLog(@"授权失败%@",error);
         [MBProgressHUD hideHUD];
     }];
+
 }
 
 @end

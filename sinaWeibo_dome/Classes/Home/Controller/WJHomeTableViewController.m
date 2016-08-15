@@ -64,25 +64,20 @@
 
 //  获得未读数
 -(void)setupUnreadCount{
-
-    // 1.请求管理者
-    AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
     
-    // 2.拼接请求参数
+    // 1.拼接请求参数
     WJAccount *account = [WJAccountTools unarchiverAccount];
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"access_token"] = account.access_token;
     params[@"uid"] = account.uid;
     
-    // 3.发送请求
+    // 2.发送请求
     NSString * api = @"https://rm.api.weibo.com/2/remind/unread_count.json";
     
-    
-    [mgr GET:api parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
+    [WJHttpTool get:api params:params success:^(id responseObject) {
         // 设置提醒数字(微博的未读数)
         // 注意： 任何NSNumber对象，可以调用description方法转为字符串对象
-            // 例如：@20 --> @"20"
+        // 例如：@20 --> @"20"
         NSString *status = [responseObject[@"status"] description];
         
         if ([status isEqualToString:@"0"]) { // 如果是0，得清空数字
@@ -93,8 +88,7 @@
             [UIApplication sharedApplication].applicationIconBadgeNumber = status.intValue;
         }
 
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+    } failure:^(NSError *error) {
         NSLog(@"请求失败-%@",error);
     }];
 
@@ -125,7 +119,6 @@
     // 刷新完毕后要清除bageValue
     self.tabBarItem.badgeValue = nil;
     // 网络获取最新数据
-    AFHTTPSessionManager * manager = [AFHTTPSessionManager manager];
     // 拼接参数
     WJAccount * account = [WJAccountTools unarchiverAccount];
     NSMutableDictionary * params = [NSMutableDictionary dictionary];
@@ -140,7 +133,7 @@
    
     
     // 发送请求
-    [manager GET:TimeLine_api parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary * responseObject) {
+    [WJHttpTool get:TimeLine_api params:params success:^(id responseObject) {
         // 将返回的字典微博数据，转为微信模型数组
         NSArray * newStatuses = [WJStatusesModel mj_objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
         
@@ -155,10 +148,10 @@
         [self.tableView reloadData];
         // 结束刷新
         [refresh endRefreshing];
-
+        
         // 显示最新微博的数量
         [self showNewStatusCount:newStatuses.count];
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+    } failure:^(NSError *error) {
         NSLog(@"请求失败-%@",error);
         [refresh endRefreshing];
     }];
@@ -202,34 +195,30 @@
 -(void)loadNewStatus{
 
      // 用户信息及其关注的好友信息 API:https://api.weibo.com/2/statuses/friends_timeline.json
-    AFHTTPSessionManager * manager = [AFHTTPSessionManager manager];
     NSString * access_token = @"2.00CAkcBD79dgoC798bd67e01qoaJ9E";
     
     //NSString * api = @"https://api.weibo.com/2/statuses/friends_timeline.json";
     NSMutableDictionary * param = [NSMutableDictionary dictionary];
     param[@"access_token"] = access_token;
     //param[@"count"] = @2; //设置获取到的微博数量
-    
-    [manager GET:TimeLine_api parameters:param progress:^(NSProgress * _Nonnull downloadProgress) {
-        
-    } success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary * responseObject) {
+    [WJHttpTool get:TimeLine_api params:param success:^(id responseObject) {
         //NSLog(@"data--%@",responseObject);
         // 获取返回数据
-//        NSArray * dicArr = responseObject[@"statuses"];
-//        for (NSDictionary * dic in dicArr) {
-//            
-//            // 使用MJExtension 字典转模型
-//            WJStatusesModel * status = [WJStatusesModel mj_objectWithKeyValues:dic];
-//            
-//            [self.statuses addObject:status];
-//        }
+        //        NSArray * dicArr = responseObject[@"statuses"];
+        //        for (NSDictionary * dic in dicArr) {
+        //
+        //            // 使用MJExtension 字典转模型
+        //            WJStatusesModel * status = [WJStatusesModel mj_objectWithKeyValues:dic];
+        //
+        //            [self.statuses addObject:status];
+        //        }
         // 直接通过字典数组转模型
         NSArray * statuses = [WJStatusesModel mj_objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
         // status 转frame 模型
         [self statusFrameWithStatuses:statuses];
         [self.tableView reloadData];
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+
+    } failure:^(NSError *error) {
         if (error) {
             NSLog(@"用户微博信息获取失败-%@",error);
         }
@@ -239,7 +228,6 @@
 // 加载更多数据(上拉刷新)
 -(void)loadMoreStatus{
 
-    AFHTTPSessionManager * manager = [AFHTTPSessionManager manager];
     WJAccount * account = [WJAccountTools unarchiverAccount];
     NSMutableDictionary * params = [NSMutableDictionary dictionary];
     params[@"access_token"] = account.access_token;
@@ -252,10 +240,10 @@
         params[@"max_id"] = @(maxId);
     }
     // 发送请求
-    [manager GET:TimeLine_api parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary * responseObject) {
+    [WJHttpTool get:TimeLine_api params:params success:^(id responseObject) {
         // 转模型
         NSArray * newStatuses = [WJStatusesModel mj_objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
-
+        
         //转frame模型
         NSArray * newFrame = [self statusFrameWithStatuses:newStatuses];
         if (newFrame.count > 0) {
@@ -263,16 +251,15 @@
             [self.statusFrames addObjectsFromArray:newFrame];
             // 刷新表格
             [self.tableView reloadData];
-
+            
         }else{
-        
+            
             [MBProgressHUD showLabel:@"没有更多微博数据"];
         }
         
         // 结束刷新（隐藏footerview）
         self.tableView.tableFooterView.hidden = YES;
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+    } failure:^(NSError *error) {
         NSLog(@"加载更多请求失败-%@",error);
     }];
     
@@ -282,7 +269,6 @@
    
     
     NSString * userInfoApi = @"https://api.weibo.com/2/users/show.json";
-    AFHTTPSessionManager * manager = [AFHTTPSessionManager manager];
     /**
      参数： access_token: 2.00CAkcBD79dgoC798bd67e01qoaJ9E
             uid : 2772408122
@@ -292,7 +278,7 @@
     [param setObject:account.access_token forKey:@"access_token"];
     [param setObject:account.uid forKey:@"uid"];
     
-    [manager GET:userInfoApi parameters:param progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [WJHttpTool get:userInfoApi params:param success:^(id responseObject) {
         NSDictionary * userInfo = responseObject;
         NSString * userName = userInfo[@"name"];
         // 先取出标题按钮
@@ -301,8 +287,8 @@
         //存储昵称到沙盒
         account.name = userName;
         [WJAccountTools saveAccount:account];
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"用户信息获取失败");
+    } failure:^(NSError *error) {
+         NSLog(@"用户信息获取失败");
     }];
 }
 -(void)addDropMenu{
